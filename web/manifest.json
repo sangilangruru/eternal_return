@@ -1,6 +1,6 @@
 {
-    "name": "eternalreturn",
-    "short_name": "eternalreturn",
+    "name": "eternal_return",
+    "short_name": "eternal_return",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

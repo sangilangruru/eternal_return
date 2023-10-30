@@ -1,4 +1,4 @@
-# eternalreturn
+# eternal_return
 
 A new Flutter project.
 

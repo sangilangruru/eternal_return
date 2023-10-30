@@ -1,13 +1,21 @@
+import 'package:eternal_return/widget/appbar_widget.dart';
+import 'package:eternal_return/widget/drawer_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
-class MainPage extends StatelessWidget{
+class MainPage extends StatefulWidget{
   const MainPage({super.key});
 
   @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
   Widget build(BuildContext context) {
 
+    // scaffoldKey를 전역으로 안뺼 경우 에러생기므로 뺌
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     final List<Map<String,String>> character = [
       {
         'name': '재키',
@@ -215,15 +223,15 @@ class MainPage extends StatelessWidget{
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text(
-          "이터널 리턴 가이드",
-          style: TextStyle(
-            color: Colors.white,
+        key: scaffoldKey,
+        appBar: AppbarWidget(scaffoldKey: scaffoldKey, tabname: "실험체"),
+        //drawer가 status바를 침범하므로 SafeArea 적용
+        drawer: SafeArea(
+          child: Drawer(
+            //Drawer 메뉴 위젯
+              child: DrawerWidget()
           ),
         ),
-      ),
       body: Container(
         color: Colors.black,
         child: _buildList(context, character)
@@ -253,7 +261,7 @@ class MainPage extends StatelessWidget{
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         mainAxisSpacing: 5,
         crossAxisSpacing: 5,
-        crossAxisCount: 5,
+        crossAxisCount: 3,
       ),
       itemBuilder: (BuildContext context, int index) {
         Map item = result[index];
@@ -261,12 +269,15 @@ class MainPage extends StatelessWidget{
         return Column(
           children: [
             // 이미지와 관심버튼 겹치게 하기위해 Stack 사용
-            Stack(children: [
+            Stack(
+              children: [
               Image.asset(item["img"], alignment: Alignment.topCenter,width: 100,),
               //관심 버튼
               IconButton(
+                  alignment: Alignment.topLeft,
+                  color: Colors.red,
                   onPressed: () {onHeartTap();},
-                  icon: Icon(Icons.favorite_border))
+                  icon: Icon(Icons.favorite_border,))
             ],),
             Container(
               color: Colors.grey,

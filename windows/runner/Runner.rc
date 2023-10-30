@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "eternalreturn" "\0"
+            VALUE "FileDescription", "eternal_return" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "eternalreturn" "\0"
+            VALUE "InternalName", "eternal_return" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "eternalreturn.exe" "\0"
-            VALUE "ProductName", "eternalreturn" "\0"
+            VALUE "OriginalFilename", "eternal_return.exe" "\0"
+            VALUE "ProductName", "eternal_return" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
