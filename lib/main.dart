@@ -1,4 +1,4 @@
-import 'package:eternal_return/widget/main_page.dart';
+import 'package:eternal_return/screen/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
